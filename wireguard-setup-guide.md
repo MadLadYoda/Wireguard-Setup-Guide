@@ -50,13 +50,16 @@ Brief Description of settings:
 - `AllowedIPs` In this instance it blocks all outbound traffic forcing it through your Wireguard tunnel.
 
 14. Once this is done copy the Public Key generated in your Windows Wireguard Client and then save the configuration.
-15. Go back to the server and type ```sudo nano /etc/wireguard/wg0.conf``` and then where it says:
+15. Go back to the server and type 
+```sudo nano /etc/wireguard/wg0.conf``` 
+and then where it says:
 ```
 [Peer]
 PublicKey = SERVERPUBLICKEY
 ```
 Replace the server Public Key you utilised earlier as a placeholder with your Client Public Key and then save & exit nano.
 16. To ensure Wireguard comes up on restarts on your server type ```sudo systemctl enable wg-quick@wg0``` and then to bring your Wireguard instance up on your server type ```sudo wg-quick up wg0```
+
 17. To turn your Wireguard tunnel on for your client simply click activate on the client.
 
 You should be done and have successfully created a tunnel between your home computer to your Wireguard server and allowed access to the internet through this tunnel routing through your VPS instance.
