@@ -8,7 +8,7 @@ This guide is to act as a simple setup guide for Wireguard server utilising a VP
 5. Created your Wireguard configuration folder utilising ```nano wg0.conf```.
 6. Generate a private & public key for your Wireguard server utilising the following commands ```wg genkey | sudo tee /etc/wireguard/private.key``` then ```sudo chmod go= /etc/wireguard/private.key``` and then finally generate your Public Key utilising ```sudo cat /etc/wireguard/private.key | wg pubkey | sudo tee /etc/wireguard/public.key```.
 7. Fill in the details below utilising the format provided and the data generated.
-`
+```
 [Interface]
 PrivateKey = SERVERPRIVATEKEY
 ListenPort = SERVERPORT
@@ -18,7 +18,7 @@ DNS = 9.9.9.9
 [Peer]
 PublicKey = CLIENTPUBLICKEY
 AllowedIPs = 10.0.0.1/32
-`
+```
 Brief Description of settings:
 - `PrivateKey`: Is the private key you generated in step 6 fopr your server.
 - `ListenPort`: Choose a port you would like to use as your port for Wireguard to listen on.
@@ -33,7 +33,7 @@ Brief Description of settings:
 11. Now install Wireguard for your Windows 11 client @ https://www.wireguard.com/install/
 12. Once installed open up Wireguard click the little down arrow and click ```Add Empty Tunnel``` you should now see a popup with a new Public Key, Private Key and requesting you to input the name of the file.
 13. Choose a name for the file and then fill in the details below utilising the provided format. Noting you will need to copy that Public Key we created earlier on the Server into this configuration file.
-`
+```
 [Interface]
 PrivateKey = CLIENTPRIVATEKEY
 ListenPort = CLIENTPORT
@@ -44,17 +44,17 @@ DNS = 9.9.9.9
 PublicKey = SERVERPUBLICKEY
 AllowedIPs = 0.0.0.0/0
 Endpoint = SERVERIP:SERVERWIREGUARDPORT
-`
+```
 Brief Description of settings:
 - `Endpoint`: Is simply your server IPv4 Address and the port you allocated for Wireguard
 - `AllowedIPs` In this instance it blocks all outbound traffic forcing it through your Wireguard tunnel.
 
 14. Once this is done copy the Public Key generated in your Windows Wireguard Client and then save the configuration.
 15. Go back to the server and type ```sudo nano /etc/wireguard/wg0.conf``` and then where it says:
-`
+```
 [Peer]
 PublicKey = SERVERPUBLICKEY
-`
+```
 Replace the server Public Key you utilised earlier as a placeholder with your Client Public Key and then save & exit nano.
 16. To ensure Wireguard comes up on restarts on your server type ```sudo systemctl enable wg-quick@wg0``` and then to bring your Wireguard instance up on your server type ```sudo wg-quick up wg0```
 17. To turn your Wireguard tunnel on for your client simply click activate on the client.
