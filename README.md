@@ -17,7 +17,7 @@ DNS = 9.9.9.9
 
 [Peer]
 PublicKey = CLIENTPUBLICKEY
-AllowedIPs = 10.0.0.1/32
+AllowedIPs = 10.0.0.2/32
 ```
 Brief Description of settings:
 - `PrivateKey`: Is the private key you generated in step 6 fopr your server.
