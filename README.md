@@ -5,8 +5,8 @@ This guide is to act as a simple setup guide for Wireguard server utilising a VP
 2. Once you are logged into the VPS run ```sudo apt update``` once this is complete proceed to run ```sudo apt upgrade```.
 3. Once completed proceed to install Wireguard utilising ```sudo apt install wireguard```.
 4. Once installed enter sudo by utilising ```sudo -i``` then proceed to your Wireguard configuration folder utilising ```cd /etc/wireguard```.
-5. Created your Wireguard configuration folder utilising ```nano wg0.conf```.
-6. Generate a private & public key for your Wireguard server utilising the following commands ```wg genkey | sudo tee /etc/wireguard/private.key``` then ```sudo chmod go= /etc/wireguard/private.key``` and then finally generate your Public Key utilising ```sudo cat /etc/wireguard/private.key | wg pubkey | sudo tee /etc/wireguard/public.key```.
+5. Generate a private & public key for your Wireguard server utilising the following commands ```wg genkey | sudo tee /etc/wireguard/private.key``` then ```sudo chmod go= /etc/wireguard/private.key``` and then finally generate your Public Key utilising ```sudo cat /etc/wireguard/private.key | wg pubkey | sudo tee /etc/wireguard/public.key```.
+6. Created your Wireguard configuration folder utilising ```nano wg0.conf```.
 7. Fill in the details below utilising the format provided and the data generated.
 ```
 [Interface]
