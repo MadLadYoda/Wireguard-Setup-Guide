@@ -37,7 +37,7 @@ Brief Description of settings:
 [Interface]
 PrivateKey = CLIENTPRIVATEKEY
 ListenPort = CLIENTPORT
-Address = 10.0.0.1/24
+Address = 10.0.0.2/24
 DNS = 9.9.9.9
 
 [Peer]
