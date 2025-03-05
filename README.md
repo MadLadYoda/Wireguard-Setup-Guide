@@ -27,7 +27,7 @@ Brief Description of settings:
 - `DNS`: The DNS server you would like to utilise.
 - `AllowedIPs` The allowed IPs that are able to connect utilising that peer configuration.
 
-8. Once this is completed you will need to allow port forwarding on your server to do this perform the command ```sudo nano /etc/sysctl.conf``` then unhash both ```net.ipv4.ip_forward=1``` & ```net.ipv4.conf.all.forwarding=1``` do not have a hashtag at the beginning of the lines then save & exit nano. Then type ```sysctl -p``` to activate the changes.
+8. Once this is completed you will need to allow port forwarding on your server to do this perform the command ```sudo nano /etc/sysctl.conf``` then unhash both ```net.ipv4.ip_forward=1``` & ```net.ipv6.conf.all.forwarding=1``` do not have a hashtag at the beginning of the lines then save & exit nano. Then type ```sysctl -p``` to activate the changes.
 9. Once this is done you will need to enable Masquerading for your primary interface utilising IPTables to allow your internal private network to be able to reach the outside world. To do this simple type ```ip addr``` and note down your primary network interface for this example we will use ```ens3``` then proceed to type the following command ```sudo iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE```
 10. To make these changes to IPTables become persistent type the following command ```sudo iptables-save | sudo tee /etc/iptables.conf``` and it should display your recently created IPTables rule.
 11. Now install Wireguard for your Windows 11 client @ https://www.wireguard.com/install/
